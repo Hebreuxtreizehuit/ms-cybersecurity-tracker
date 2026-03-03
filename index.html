@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>MS Cybersecurity Tracker</title>
+
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🛡️</div>
+      <div class="brandtext">
+        <div class="title">MS Cybersecurity Tracker</div>
+        <div class="subtitle">Progress tracker (Course 1 → Course 9) • Offline PWA</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="installBtn" class="btn ghost" type="button" hidden>Install</button>
+      <button id="exportBtn" class="btn ghost" type="button">Export</button>
+      <button id="resetBtn" class="btn danger" type="button" title="Reset all progress">Reset</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panelHead">
+        <h2>Overview</h2>
+        <div id="overallPct" class="pill">0% complete</div>
+      </div>
+
+      <div class="progressRow">
+        <div class="progressBar" aria-label="Overall progress">
+          <div id="overallFill" class="progressFill" style="width:0%"></div>
+        </div>
+        <div class="hint">Complete a course to unlock the next one.</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <aside class="panel" id="courseListPanel">
+        <div class="panelHead">
+          <h2>Courses</h2>
+          <div class="hint small">Tap a course to open details.</div>
+        </div>
+        <div id="courseList" class="courseList" role="list"></div>
+      </aside>
+
+      <section class="panel" id="courseDetailPanel">
+        <div class="panelHead">
+          <h2 id="courseTitle">Select a course</h2>
+          <div class="rightTools">
+            <span id="courseStatus" class="pill">—</span>
+          </div>
+        </div>
+
+        <div id="courseMeta" class="meta"></div>
+
+        <div class="tabs" role="tablist" aria-label="Course tabs">
+          <button class="tab active" data-tab="modules" role="tab" aria-selected="true">Modules</button>
+          <button class="tab" data-tab="learn" role="tab" aria-selected="false">What you’ll learn</button>
+          <button class="tab" data-tab="skills" role="tab" aria-selected="false">Skills</button>
+          <button class="tab" data-tab="notes" role="tab" aria-selected="false">Notes</button>
+        </div>
+
+        <div id="tab_modules" class="tabPanel active" role="tabpanel"></div>
+        <div id="tab_learn" class="tabPanel" role="tabpanel"></div>
+        <div id="tab_skills" class="tabPanel" role="tabpanel"></div>
+        <div id="tab_notes" class="tabPanel" role="tabpanel"></div>
+
+        <div class="footerActions">
+          <button id="markCourseDoneBtn" class="btn" type="button" disabled>Mark course completed</button>
+          <button id="reopenCourseBtn" class="btn ghost" type="button" disabled>Reopen course</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2>Help</h2>
+      </div>
+      <ul class="bullets">
+        <li>This app works offline and saves progress on your device.</li>
+        <li>Courses 2–9 remain locked until you complete the previous course.</li>
+        <li>You are currently on <b>Course 1</b>. Start checking items under Modules.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
