@@ -1,4 +1,4 @@
-const CACHE = "ms-tracker-v1";
+const CACHE = "ms-tracker-v2";
 const ASSETS = [
   "./",
   "./index.html",
